@@ -1,4 +1,5 @@
 import {useEffect, useRef, useState} from "react";
+import produce from "immer";
 
 export default function useStateAsync(values: any) {
     const [value, setValue] = useState(values || {});
@@ -33,13 +34,11 @@ export default function useStateAsync(values: any) {
             fieldNames: fieldNames,
             callback: callback,
         };
-        setValue(prevValue => {
-            const updatedValue = {...prevValue};
+        setValue(produce(draft => {
             fieldNames.forEach(fieldName => {
-                updatedValue[fieldName] = updatedValues[fieldName];
+                draft[fieldName] = updatedValues[fieldName];
             });
-            return updatedValue;
-        });
+        }));
     };
 
     return {
