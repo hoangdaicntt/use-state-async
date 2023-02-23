@@ -1,7 +1,7 @@
 import {useEffect, useRef, useState} from "react";
 import produce from "immer";
 
-export default function useStateAsync(values: any) {
+export default function useStateAsync(values?: any) {
     const [value, setValue] = useState(values || {});
     const hookRef = useRef<any>();
 

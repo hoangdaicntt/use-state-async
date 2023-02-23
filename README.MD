@@ -3,7 +3,7 @@
 
 ## Usage
 ```javascript
-const { value, setValue, updateValue } = useStateAsync({ name: '', age: 0 });
+const [ value, setValue, updateValue ] = useStateAsync({ name: '', age: 0 });
 
 const handleNameChange = (event) => {
   updateValue('name', event.target.value, (prevValue, nextValue) => {
