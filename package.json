@@ -10,8 +10,11 @@
     "type": "git",
     "url": "git+https://github.com/hoangdaicntt/use-state-async.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "useState async",
+    "useState"
+  ],
+  "author": "hoangdaicntt",
   "license": "ISC",
   "dependencies": {
     "react": "^18.2.0"
