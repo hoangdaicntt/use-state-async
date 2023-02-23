@@ -1,9 +1,15 @@
 {
   "name": "use-state-async",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "",
-  "main": "index.tsx",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,8 +22,11 @@
   ],
   "author": "hoangdaicntt",
   "license": "ISC",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "@types/react": "^18.0.28",
     "immer": "^9.0.19",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "typescript": "^4.9.5"
   }
 }

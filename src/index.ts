@@ -59,5 +59,5 @@ export default function useStateAsync(values?: any) {
         setValue: changeValue,
         updateValue: updateValue,
     }
-    return [value, setValue, updateValue];
+    return [result.value, result.setValue, result.updateValue];
 }
