@@ -34,16 +34,30 @@ export default function useStateAsync(values: any) {
             fieldNames: fieldNames,
             callback: callback,
         };
-        setValue(produce(draft => {
+        setValue(produce((draft: any) => {
             fieldNames.forEach(fieldName => {
                 draft[fieldName] = updatedValues[fieldName];
             });
+            draft.___changed_id = Math.random();
         }));
     };
 
-    return {
-        value: value,
-        setValue: setValue,
+    const changeValue = (values: any, callback?: (event: any) => void) => {
+        hookRef.current = {
+            prevValue: value,
+            fieldNames: Object.keys(values),
+            callback: callback,
+        };
+        setValue({...(values || {}), ___changed_id: Math.random()});
+    }
+
+    const resultValue = value;
+    delete resultValue.___changed_id;
+
+    const result = {
+        value: resultValue,
+        setValue: changeValue,
         updateValue: updateValue,
     }
+    return [value, setValue, updateValue];
 }
